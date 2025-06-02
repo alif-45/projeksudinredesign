@@ -246,7 +246,7 @@
             <div class="container">
                 <div class="hero-section text-center py-5">
                     <h1 class="display-4 fw-bold">Selamat Datang di Portal Resmi</h1>
-                    <h2 class="display-5 fw-normal">Pemerintah Kota Jakarta Selatan</h2>
+                    <h2 class="display-5 fw-normal">Sudinsos Jakarta Selatan</h2>
                     <p class="lead">Kami hadir untuk memberikan layanan dan informasi terbaik kepada masyarakat dengan
                         transparansi dan akuntabilitas.</p>
                     <div class="search-container mt-5">
@@ -285,7 +285,7 @@
                                         <p class="lead" style="max-width: 600px; margin: 0 auto;">Gubernur DKI Jakarta
                                             2025-2030
                                         <div class="text-center mt-3">
-                                            <small class="text-muted">- Heru Budi Hartono</small>
+                                            <small class="text-muted">- Pramono Agung</small>
                                         </div>
                                     </div>
                                 </div>
@@ -294,10 +294,10 @@
                         <div class="carousel-item ">
                             <div class="row align-items-center justify-content-center">
                                 <div class="col-md-4 text-center">
-                                    <img src="https://selatan.jakarta.go.id/modul/sudinsos/upload/visi_misi/202211041424-munjirin--s.sos--m.si.png"
+                                    <img src="https://selatan.jakarta.go.id/upload/visi_misi/202505080847-m.-anwar--s.si.--m.a.p..png"
                                         class="img-fluid rounded-circle shadow mb-3" alt="Profil 2"
                                         style="width: 150px; height: 150px; object-fit: cover; border: 4px solid #009688;">
-                                    <h4 class="mt-2">Munjirin, S.Sos, M.Si</h4>
+                                    <h4 class="mt-2">M. Anwar, S.Si., M.A.P.</h4>
                                     <p class="text-muted">Walikota Kota Administrasi Jakarta Selatan</p>
                                 </div>
                                 <div class="col-md-7 text-center">
@@ -306,7 +306,7 @@
                                             Jakarta Selatan yang berbudaya, berorientasi pada pelayanan publik dan
                                             berwawasan lingkungan."</p>
                                         <div class="text-center mt-3">
-                                            <small class="text-muted">- Munjirin, S.Sos, M.Si</small>
+                                            <small class="text-muted">- M. Anwar, S.Si., M.A.P.</small>
                                         </div>
                                     </div>
                                 </div>
@@ -410,7 +410,7 @@
         </div>
 
         <div class="partner-section mt-5">
-            <h3 class="text-center">Partner Wilayah Jakarta Selatan</h3>
+            <h3 class="text-center ">Partner Wilayah Jakarta Selatan</h3>
             <div id="partnerCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -445,7 +445,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item mt-3">
                         <div class="row">
                             <div class="col-6 col-md-3">
                                 <div class="partner-item">
@@ -487,16 +487,16 @@
             </div>
         </div>
 
-        <div class="row mt-5 g-3">
+        <div class="row mt-5 g-4">
             <div class="col-12 col-lg-6">
                 <div class="card h-100">
                     <div class="card-body p-0">
                         <h2 class="card-title p-3">Wilayah Jakarta Selatan</h2>
-                        <div class="ratio ratio-1x1">
+                        <div class="ratio ratio-1x1 ">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.317239755586!2d106.8225093153286!3d-6.301930963478221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f2308f7f2f3d%3A0x7d9a5a3a5b5b5b5b!2sKantor%20Walikota%20Jakarta%20Selatan!5e0!3m2!1sen!2sid!4v1672244147501!5m2!1sen!2sid"
-                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.1187157415025!2d106.80493347465561!3d-6.248083593740319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f15b7ec133eb%3A0x8d26cbb8e9133c6a!2sSouth%20Jakarta%20Mayor%20Office!5e0!3m2!1sen!2sid!4v1746757470413!5m2!1sen!2sid"
+                                width="600" height="550" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
