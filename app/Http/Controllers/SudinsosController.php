@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Berita;
 use App\Models\Pelayanan;
+use App\Models\Schedule;
 
 use Illuminate\Http\Request;
 
@@ -11,9 +12,14 @@ class SudinsosController extends Controller
     //
     public function beranda()
     {
-        $beritas = Berita::latest()->take(5)->get(); // atau paginate()
 
-        return view('sudinsos.beranda', compact('beritas'));
+        $schedules = Schedule::orderBy('date', 'asc')
+            ->orderBy('time', 'asc')
+            ->take(2)
+            ->get();
+
+        return view('sudinsos.beranda', compact('schedules'));
+
     }
     public function profil()
     {
@@ -28,6 +34,5 @@ class SudinsosController extends Controller
     {
         $beritas = Berita::latest()->get();
         return view('sudinsos.berita', compact('beritas'));
-        return view('sudinsos.berita');
     }
 }

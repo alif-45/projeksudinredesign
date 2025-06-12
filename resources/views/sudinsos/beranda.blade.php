@@ -198,6 +198,76 @@
             color: white;
             text-decoration: underline;
         }
+
+        /* Custom styles for schedules */
+        .schedule-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--primary-color);
+            /* Added a left border like in the image */
+        }
+
+        .schedule-date-box {
+            flex-shrink: 0;
+            /* Prevent the date box from shrinking */
+            width: 80px;
+            /* Fixed width for the date box */
+            text-align: center;
+            padding-right: 1rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .schedule-date-box .day-num {
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .schedule-date-box .month-year {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .schedule-details {
+            flex-grow: 1;
+        }
+
+        .schedule-tag {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            /* Use secondary color for tags */
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .schedule-location-box {
+            flex-shrink: 0;
+            width: 150px;
+            /* Adjust as needed */
+            text-align: right;
+            font-size: 0.9rem;
+            color: #666;
+            padding-left: 1rem;
+        }
+
+        .schedule-location-box p {
+            margin-bottom: 0;
+        }
+
+        .agenda-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
     </style>
 </head>
 
@@ -337,8 +407,6 @@
     </main>
 
 
-
-
     <div class="container py-5">
         <div class="row g-4">
             <div class="col-md-4 col-6">
@@ -391,6 +459,40 @@
             </div>
         </div>
 
+        <div class="card mt-5 p-3">
+            <div class="card-header ">
+                <h2 class="mb-0">Agenda Terkini</h2>
+            </div>
+            @if($schedules->isEmpty())
+            <p class="text-center text-muted">Tidak ada agenda terkini yang tersedia.</p>
+            @else
+            <div class="d-flex flex-column gap-3 mt-3">
+                @foreach($schedules as $schedule)
+                <div class="schedule-item">
+                    <div class="schedule-date-box me-3">
+                        <div class="day-num">{{ $schedule->date->format('d') }}</div>
+                        <div class="month-year">{{ $schedule->date->format('M Y') }}</div>
+                    </div>
+                    <div class="schedule-details flex-grow-1">
+                        <p class="mb-1">
+                            <span class="fw-bold">{{ $schedule->day_of_week ?: $schedule->date->translatedFormat('l')
+                                }}</span>, Jam {{ $schedule->time->format('H:i') }} WIB
+                            @if($schedule->short_note)
+                            <span class="schedule-tag">{{ $schedule->short_note }}</span>
+                            @endif
+                        </p>
+                        <h5 class="fw-bold mb-1">{{ $schedule->title }}</h5>
+                        <p class="text-muted mb-0">{{ $schedule->description_below_title }}</p>
+                    </div>
+                    <div class="schedule-location-box ms-3">
+                        <p class="fw-bold">Tempat</p>
+                        <p>{{ $schedule->location }}</p>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            @endif
+        </div>
 
         <div class="card mt-5">
             <div class="card-header ">

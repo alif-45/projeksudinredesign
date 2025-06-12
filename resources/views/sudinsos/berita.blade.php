@@ -95,23 +95,35 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="{{ asset('asset/image/picture.png') }}" alt="Logo" height="40">
-                Pemerintah Kota Jakarta Selatan
+                <img src="{{ asset('asset/image/gambar.png') }}" alt="Logo" height="40">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link @if (Request::is('/')) active @endif"
-                            href="{{ route('sudinsos.beranda') }}">Beranda</a></li>
-                    <li class="nav-item"><a class="nav-link @if (Request::is('profil*')) active @endif"
-                            href="{{ route('sudinsos.profil') }}">Profil Sudinsos</a></li>
-                    <li class="nav-item"><a class="nav-link @if (Request::is('pelayanan*')) active @endif"
-                            href="{{ route('sudinsos.pelayanan') }}">Pelayanan</a></li>
-                    <li class="nav-item"><a class="nav-link @if (Request::is('berita*')) active @endif"
-                            href="{{ route('sudinsos.berita') }}">Berita</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link @if(Request::is('/')) active @endif"
+                            href="{{ route('sudinsos.beranda') }}">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if(Request::is('profil*')) active @endif"
+                            href="{{ route('sudinsos.profil') }}">Profil Sudinsos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if(Request::is('pelayanan*')) active @endif"
+                            href="{{ route('sudinsos.pelayanan') }}">Pelayanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active @if(Request::is('berita*')) active @endif"
+                            href="{{ route('sudinsos.berita') }}">Berita</a>
+                    </li>
                 </ul>
+                <div class="social-icons ms-3">
+                    <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white mx-2"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
         </div>
     </nav>
@@ -156,30 +168,50 @@
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="py-5 mt-5">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <h5><i class="fas fa-building"></i> Tentang Kami</h5>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5><i class="fas fa-building me-2"></i> Tentang Kami</h5>
                     <p>Website resmi Pemerintah Kota Jakarta Selatan untuk memberikan pelayanan dan informasi kepada
-                        masyarakat.</p>
+                        masyarakat secara transparan dan akuntabel.</p>
+                    <div class="social-media mt-3">
+                        <a href="#" class="me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <h5><i class="fas fa-address-book"></i> Kontak</h5>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5><i class="fas fa-address-book me-2"></i> Kontak</h5>
                     <ul class="list-unstyled">
-                        <li><i class="fas fa-map-marker-alt"></i> Jl. Prapanca Raya No.9, Kebayoran Baru</li>
-                        <li><i class="fas fa-phone"></i> (021) 2271-6000</li>
-                        <li><i class="fas fa-envelope"></i> info@example.com</li>
-                        <li><i class="fas fa-clock"></i> Senin - Jumat: 08.00 - 16.00 WIB</li>
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Jl. Prapanca Raya No.9,
+                            Kebayoran
+                            Baru, Jakarta Selatan</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> (021) 2271-6000</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@example.com</li>
+                        <li><i class="fas fa-clock me-2"></i> Senin-Jumat: 08.00 - 16.00 WIB</li>
                     </ul>
                 </div>
-                <div class="col-md-4">
-                    <h5><i class="fas fa-share-alt"></i> Sosial Media</h5>
-                    <a href="#" class="text-white me-2"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                <div class="col-lg-4">
+                    <h5><i class="fas fa-link me-2"></i> Tautan Cepat</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#"><i class="fas fa-chevron-right me-2"></i>Kebijakan Privasi</a>
+                        </li>
+                        <li class="mb-2"><a href="#"><i class="fas fa-chevron-right me-2"></i>Syarat dan
+                                Ketentuan</a>
+                        </li>
+                        <li class="mb-2"><a href="#"><i class="fas fa-chevron-right me-2"></i>Peta Situs</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>FAQ</a></li>
+                    </ul>
                 </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">Hak Cipta &copy; {{ date('Y') }} <a href="#"
+                        style="color:rgb(205, 255, 249); font-family: Georgia, 'Times New Roman', Times, serif;">Pemerintah
+                        Kota
+                        Administrasi Jakarta Selatan</a></p>
             </div>
         </div>
     </footer>
