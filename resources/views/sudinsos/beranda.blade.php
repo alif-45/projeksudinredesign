@@ -123,6 +123,18 @@
             border-radius: 8px 8px 0 0 !important;
         }
 
+        .btn-read-more {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-read-more:hover {
+            background-color: var(--secondary-color);
+        }
+
+
         .partner-section {
             background-color: white;
             padding: 2rem;
@@ -494,20 +506,27 @@
             @endif
         </div>
 
-        <div class="card mt-5">
-            <div class="card-header ">
-                <h2 class="mb-0">Informasi Terkini</h2>
-            </div>
-            <div class="card-body">
-                <img src="https://selatan.jakarta.go.id/modul/sudinsos/upload/thumbnail/202406131626_dinsos.png"
-                    alt=""><br><br>
-                <h5 class="card-title">Jakarta Selatan Raih Penghargaan Kota Terinovatif 2023</h5>
-                <p class="card-text">Pemerintah Kota Jakarta Selatan menerima penghargaan sebagai Kota Terinovatif
-                    tahun 2023 dari Kementerian Dalam Negeri...</p>
-                <a href="#" class="btn btn-outline-secondary">Baca Selengkapnya</a>
-            </div>
-            <div class="card-footer bg-light">
-                Dipublikasikan pada 2 hari yang lalu
+        <div class="container my-5">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                @foreach ($beritas as $berita)
+                <div class="col">
+                    <div class="card h-100">
+                        @if ($berita->gambar)
+                        <img src="{{ asset('storage/' . $berita->gambar) }}" class="card-img-top" alt="Gambar Berita" />
+                        @endif
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $berita->judul }}</h5>
+                            <p class="card-text">{{ Str::limit(strip_tags($berita->konten), 100) }}</p>
+                            <a href="{{ route('sudinsos.berita.show', $berita->id) }}" class="btn btn-read-more">Baca
+                                Selengkapnya</a>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Dipublikasikan pada {{ $berita->created_at->format('d M Y')
+                                }}</small>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
             </div>
         </div>
 
@@ -619,6 +638,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     </main>

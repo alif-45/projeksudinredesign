@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Berita Jaksel, Situs Web Resmi Pemerintah Kota Administrasi Jakarta Selatan</title>
+    <title>{{ $berita->judul }} - Berita Jaksel</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
@@ -38,55 +38,65 @@
             background: linear-gradient(rgba(210, 245, 255, 0.8), rgba(255, 255, 255, 0.8));
         }
 
-        .feature-box,
         .card {
             border-radius: 8px;
             background-color: white;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(11, 179, 226, 0.3);
-        }
-
-        .card img {
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-        }
-
-        .card-footer {
-            background-color: #f1f1f1;
-            border-top: none;
-        }
-
-        .card-title {
-            color: var(--dark-color);
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
-
-        .btn-read-more {
+        .btn-custom-primary {
             background-color: var(--primary-color);
             color: white;
             border: none;
-            transition: background-color 0.3s;
         }
 
-        .btn-read-more:hover {
+        .btn-custom-primary:hover {
             background-color: var(--secondary-color);
-        }
-
-        .search-form input {
-            border: 1px solid var(--primary-color);
-        }
-
-        .search-form button {
-            background-color: var(--primary-color);
             color: white;
-            border: none;
         }
+
+        .input-group .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(0, 94, 122, 0.25);
+        }
+
+        .content-berita {
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: var(--dark-color);
+        }
+
+        .content-berita p {
+            margin-bottom: 1rem;
+        }
+
+        .content-berita br {
+            display: block;
+            margin-bottom: 0.75rem;
+            content: "";
+        }
+
+        .content-berita h1,
+        .content-berita h2,
+        .content-berita h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .content-berita ul,
+        .content-berita ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-berita img {
+            max-width: 100%;
+            height: auto;
+            margin: 1rem 0;
+            border-radius: 6px;
+        }
+
 
         footer {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
@@ -118,21 +128,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link @if(Request::is('/')) active @endif"
-                            href="{{ route('sudinsos.beranda') }}">Beranda</a>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('sudinsos.beranda') }}">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('sudinsos.profil') }}">Profil Sudinsos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link @if(Request::is('profil*')) active @endif"
-                            href="{{ route('sudinsos.profil') }}">Profil Sudinsos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link @if(Request::is('pelayanan*')) active @endif"
-                            href="{{ route('sudinsos.pelayanan') }}">Pelayanan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active @if(Request::is('berita*')) active @endif"
-                            href="{{ route('sudinsos.berita') }}">Berita</a>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('sudinsos.pelayanan') }}">Pelayanan</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{ route('sudinsos.berita') }}">Berita</a>
                     </li>
                 </ul>
                 <div class="social-icons ms-3">
@@ -144,59 +144,70 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main>
         <div class="main-hero-wrapper">
             <div class="container">
-                <div class="text-center mb-4">
-                    <h2>Berita Jaksel</h2>
-                    <p>Kota Administrasi Jakarta Selatan</p>
-                </div>
-                <div class="mb-4">
-                    <form class="d-flex justify-content-end search-form" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Cari berita..."
-                            aria-label="Search" />
-                        <button class="btn" type="submit">Cari</button>
-                    </form>
-                </div>
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                    @foreach ($beritas as $berita)
-                    <div class="col">
-                        <div class="card h-100">
-                            @if ($berita->gambar)
-                            <img src="{{ asset('storage/' . $berita->gambar) }}" class="card-img-top"
+                <div class="row">
+                    <div class="col-lg-8 mb-4">
+                        <div class="text-center mb-4">
+                            <h2 class="fw-bold">{{ $berita->judul }}</h2>
+                            <p class="text-muted">Dipublikasikan pada {{ $berita->created_at->format('d M Y') }}</p>
+                        </div>
+
+                        @if ($berita->gambar)
+                        <div class="text-center mb-4">
+                            <img src="{{ asset('storage/' . $berita->gambar) }}" class="img-fluid rounded shadow-sm"
                                 alt="Gambar Berita" />
-                            @endif
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $berita->judul }}</h5>
-                                <p class="card-text">{{ Str::limit(strip_tags($berita->konten), 100) }}</p>
-                                <a href="{{ route('sudinsos.berita.show', $berita->id) }}"
-                                    class="btn btn-read-more">Baca Selengkapnya</a>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Dipublikasikan pada {{ $berita->created_at->format('d M Y')
-                                    }}</small>
-                            </div>
+                        </div>
+                        @endif
+
+                        <div class="bg-white p-4 rounded shadow-sm content-berita">
+                            {!! $berita->konten !!}
+                        </div>
+
+
+                        <div class="mt-4 text-center">
+                            <a href="{{ route('sudinsos.berita') }}" class="btn btn-custom-primary">
+                                <i class="fas fa-arrow-left me-2"></i> Kembali ke Daftar Berita
+                            </a>
                         </div>
                     </div>
-                    @endforeach
+
+                    <div class="col-lg-4">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title mb-3"><i class="fas fa-search me-2"></i> Cari Berita</h5>
+                                <form action="{{ route('sudinsos.berita') }}" method="GET">
+                                    <div class="input-group">
+                                        <input type="text" name="search" class="form-control"
+                                            placeholder="Ketik kata kunci..." />
+                                        <button class="btn btn-custom-primary" type="submit">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info">
+                            Belum ada berita lain ditambahkan.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="mt-4 d-flex justify-content-center">
-            {{ $beritas->links() }}
-        </div>
-
     </main>
 
     <!-- Footer -->
     <footer class="py-5 mt-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 mb-4 mb-lg-0">
+                <div class="col-lg-4 mb-4">
                     <h5><i class="fas fa-building me-2"></i> Tentang Kami</h5>
-                    <p>Website resmi Pemerintah Kota Jakarta Selatan untuk memberikan pelayanan dan informasi kepada
-                        masyarakat secara transparan dan akuntabel.</p>
+                    <p>
+                        Website resmi Pemerintah Kota Jakarta Selatan untuk memberikan pelayanan dan informasi kepada
+                        masyarakat secara transparan dan akuntabel.
+                    </p>
                     <div class="social-media mt-3">
                         <a href="#" class="me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
                         <a href="#" class="me-3"><i class="fab fa-twitter fa-lg"></i></a>
@@ -204,7 +215,7 @@
                         <a href="#"><i class="fab fa-youtube fa-lg"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-4 mb-4 mb-lg-0">
+                <div class="col-lg-4 mb-4">
                     <h5><i class="fas fa-address-book me-2"></i> Kontak</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Jl. Prapanca Raya No.9, Kebayoran
@@ -227,9 +238,12 @@
             </div>
             <hr class="my-4" />
             <div class="text-center">
-                <p class="mb-0">Hak Cipta &copy; {{ date('Y') }} <a href="#"
+                <p class="mb-0">
+                    Hak Cipta &copy; {{ date('Y') }}
+                    <a href="#"
                         style="color:rgb(205, 255, 249); font-family: Georgia, 'Times New Roman', Times, serif;">Pemerintah
-                        Kota Administrasi Jakarta Selatan</a></p>
+                        Kota Administrasi Jakarta Selatan</a>
+                </p>
             </div>
         </div>
     </footer>

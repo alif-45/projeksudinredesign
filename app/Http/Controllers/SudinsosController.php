@@ -12,15 +12,16 @@ class SudinsosController extends Controller
     //
     public function beranda()
     {
+        $beritas = Berita::latest()->take(3)->get();
 
         $schedules = Schedule::orderBy('date', 'asc')
             ->orderBy('time', 'asc')
-            ->take(2)
+            ->take(3)
             ->get();
 
-        return view('sudinsos.beranda', compact('schedules'));
-
+        return view('sudinsos.beranda', compact('schedules', 'beritas'));
     }
+
     public function profil()
     {
         return view('sudinsos.profil');
@@ -32,7 +33,19 @@ class SudinsosController extends Controller
     }
     public function berita()
     {
-        $beritas = Berita::latest()->get();
+        $beritas = Berita::latest()->paginate(3);
         return view('sudinsos.berita', compact('beritas'));
     }
+    public function showBerita($id)
+    {
+        $berita = Berita::findOrFail($id);
+
+        $beritas = Berita::where('id', '!=', $berita->id)
+            ->latest()
+            ->take(5)
+            ->get();
+
+        return view('sudinsos.show', compact('berita', 'beritas'));
+    }
+
 }
