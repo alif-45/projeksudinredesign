@@ -7,131 +7,7 @@
     <title>Berita Jaksel, Situs Web Resmi Pemerintah Kota Administrasi Jakarta Selatan</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <style>
-        :root {
-            --primary-color: #005E7A;
-            --secondary-color: #009688;
-            --accent-color: #FFC107;
-            --light-color: #E8F4F8;
-            --dark-color: #333333;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--dark-color);
-            background-color: #f8f9fa;
-            padding-top: 56px;
-        }
-
-        .navbar {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar-brand {
-            font-weight: 700;
-            color: white !important;
-        }
-
-        .main-hero-wrapper {
-            padding: 4rem 0;
-            background: linear-gradient(rgba(210, 245, 255, 0.8), rgba(255, 255, 255, 0.8));
-        }
-
-        .feature-box,
-        .card {
-            border-radius: 8px;
-            background-color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(11, 179, 226, 0.3);
-        }
-
-        .card img {
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-        }
-
-        .card-footer {
-            background-color: #f1f1f1;
-            border-top: none;
-        }
-
-        .card-title {
-            color: var(--dark-color);
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
-
-        .btn-read-more {
-            background-color: var(--primary-color);
-            color: rgb(255, 255, 255);
-            border: none;
-            transition: background-color 0.3s;
-        }
-
-        .btn-read-more:hover {
-            background-color: var(--secondary-color);
-        }
-
-        .search-form input {
-            border: 1px solid var(--primary-color);
-        }
-
-        .search-form button {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-        }
-
-        .page-link {
-            color: rgb(126, 175, 174) !important;
-        }
-
-        .page-link:hover {
-            color: white !important;
-            background-color: rgb(32, 161, 148) !important;
-            border-color: rgb(219, 211, 211) !important;
-        }
-
-        .page-item.active .page-link {
-            background-color: rgb(46, 77, 97) !important;
-            border-color: rgb(176, 180, 184) !important;
-            color: white !important;
-        }
-
-
-        @media (max-width: 767.98px) {
-            .navbar-nav .nav-link {
-                text-align: center;
-            }
-
-            .social-icons {
-                text-align: center;
-                margin-top: 1rem;
-            }
-        }
-
-        footer {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 2rem 0;
-        }
-
-        footer a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: white;
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('asset/blade/berita.css')}}">
 </head>
 
 <body>
@@ -139,7 +15,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="{{ asset('asset/image/gambar.png') }}" alt="Logo" height="40" />
+                <img src="{{ asset('asset/image/logo.png') }}" alt="Logo" height="40" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>

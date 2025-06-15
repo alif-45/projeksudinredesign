@@ -1,0 +1,278 @@
+       :root {
+           --primary-color: #005E7A;
+           --secondary-color: #009688;
+           --accent-color: #FFC107;
+           --light-color: #E8F4F8;
+           --dark-color: #333333;
+       }
+
+       body {
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+           color: var(--dark-color);
+           background-color: #f8f9fa;
+           padding-top: 56px;
+       }
+
+       .navbar {
+           background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+       }
+
+       .navbar-brand {
+           margin-right: 0;
+           font-weight: 700;
+           color: white !important;
+       }
+
+       .main-hero-wrapper {
+           position: relative;
+           background: linear-gradient(rgba(0, 94, 122, 0.8), rgba(238, 241, 240, 0.8));
+           padding: 4rem 0;
+       }
+
+       .main-hero-wrapper::before {
+           content: '';
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background-image: url('/asset/blade/jaksell.jpg');
+           background-size: cover;
+           background-position: center;
+           z-index: -1;
+           opacity: 0.8;
+       }
+
+       .hero-section {
+           color: white;
+           position: relative;
+           z-index: 1;
+       }
+
+       .feature-box {
+           padding: 2rem;
+           border-radius: 8px;
+           background-color: white;
+           height: 100%;
+           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+           transition: all 0.3s ease;
+       }
+
+       .feature-box:hover {
+           transform: translateY(-5px);
+           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+       }
+
+       .feature-box i {
+           font-size: 2.5rem;
+           color: var(--primary-color);
+           margin-bottom: 1rem;
+       }
+
+       .card {
+           border-radius: 8px;
+           border: none;
+           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+           transition: transform 0.3s ease, box-shadow 0.3s ease;
+       }
+
+       .card:hover {
+           transform: translateY(-5px);
+           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+       }
+
+       .card-header {
+           background-color: var(--primary-color);
+           color: white;
+           border-radius: 8px 8px 0 0 !important;
+       }
+
+       .btn-read-more {
+           background-color: var(--primary-color);
+           color: white;
+           border: none;
+           transition: background-color 0.3s;
+       }
+
+       .btn-read-more:hover {
+           background-color: var(--secondary-color);
+       }
+
+       .partner-section {
+           background-color: white;
+           padding: 2rem;
+           border-radius: 8px;
+           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+           margin-top: 2rem;
+       }
+
+       .partner-section h3 {
+           color: var(--primary-color);
+           font-weight: 600;
+           margin-bottom: 2rem;
+       }
+
+       .partner-item {
+           padding: 1rem;
+           text-align: center;
+       }
+
+       .partner-img {
+           max-height: 100px;
+           width: auto;
+           margin: 0 auto;
+           display: block;
+       }
+
+       .partner-title {
+           color: var(--dark-color);
+           font-weight: 600;
+           margin-top: 1rem;
+       }
+
+       .carousel-indicators {
+           position: relative;
+           bottom: auto;
+           margin: 2rem 0 0;
+       }
+
+       .carousel-indicators [data-bs-target] {
+           width: 12px;
+           height: 12px;
+           border-radius: 50%;
+           background-color: rgba(0, 94, 122, 0.3);
+           border: none;
+           margin: 0 8px;
+           transition: all 0.3s ease;
+       }
+
+       .carousel-indicators .active {
+           background-color: var(--primary-color);
+           width: 30px;
+           border-radius: 6px;
+       }
+
+       footer {
+           background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+           color: white;
+       }
+
+       footer h5 {
+           color: white;
+           font-weight: 600;
+           margin-bottom: 1rem;
+       }
+
+       footer a {
+           color: rgba(255, 255, 255, 0.8);
+           transition: color 0.3s;
+           text-decoration: none;
+       }
+
+       footer a:hover {
+           color: white;
+           text-decoration: underline;
+       }
+
+       .schedule-item {
+           display: flex;
+           align-items: flex-start;
+           margin-bottom: 1.5rem;
+           padding: 1rem;
+           background-color: #fff;
+           border-radius: 8px;
+           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+           border-left: 5px solid var(--primary-color);
+       }
+
+       .schedule-date-box {
+           flex-shrink: 0;
+           width: 80px;
+           text-align: center;
+           padding-right: 1rem;
+           color: var(--primary-color);
+           font-weight: bold;
+       }
+
+       .schedule-date-box .day-num {
+           font-size: 2rem;
+           line-height: 1;
+       }
+
+       .schedule-date-box .month-year {
+           font-size: 0.85rem;
+           text-transform: uppercase;
+       }
+
+       .schedule-details {
+           flex-grow: 1;
+       }
+
+       .schedule-tag {
+           display: inline-block;
+           background-color: var(--secondary-color);
+           color: white;
+           padding: 0.25rem 0.75rem;
+           border-radius: 5px;
+           font-size: 0.8rem;
+           margin-right: 0.5rem;
+           margin-bottom: 0.5rem;
+       }
+
+       .schedule-location-box {
+           flex-shrink: 0;
+           width: 150px;
+           text-align: right;
+           font-size: 0.9rem;
+           color: #666;
+           padding-left: 1rem;
+       }
+
+       .schedule-location-box p {
+           margin-bottom: 0;
+       }
+
+       .agenda-title {
+           color: var(--primary-color);
+           font-weight: 600;
+           margin-bottom: 1.5rem;
+       }
+
+       @media (max-width: 767.98px) {
+           .navbar-nav .nav-link {
+               text-align: center;
+           }
+
+           .social-icons {
+               text-align: center;
+               margin-top: 1rem;
+           }
+
+           .carousel-control-prev,
+           .carousel-control-next {
+               display: none;
+           }
+
+           .card-header h2 {
+               font-size: 1.5rem;
+           }
+
+           .schedule-item {
+               flex-direction: column;
+               align-items: center;
+               text-align: center;
+           }
+
+           .schedule-date-box {
+               padding-right: 0;
+               margin-bottom: 1rem;
+           }
+
+           .schedule-location-box {
+               width: 100%;
+               text-align: center;
+               padding-left: 0;
+               margin-top: 1rem;
+           }
+       }

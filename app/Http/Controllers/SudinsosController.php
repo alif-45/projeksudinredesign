@@ -42,7 +42,7 @@ class SudinsosController extends Controller
 
         $beritas = Berita::where('id', '!=', $berita->id)
             ->latest()
-            ->take(5)
+            ->take(2)
             ->get();
 
         return view('sudinsos.show', compact('berita', 'beritas'));

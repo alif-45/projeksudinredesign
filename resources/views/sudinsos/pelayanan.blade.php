@@ -7,121 +7,14 @@
     <title>Daftar Pelayanan - Pemerintah Kota Jakarta Selatan</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #005E7A;
-            --secondary-color: #009688;
-            --accent-color: #FFC107;
-            --light-color: #E8F4F8;
-            --dark-color: #333333;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--dark-color);
-            background-color: #f8f9fa;
-            padding-top: 56px;
-        }
-
-        .navbar {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar-brand {
-            font-weight: 700;
-            color: white !important;
-        }
-
-        .navbar-brand img {
-            height: 40px;
-        }
-
-        .layanan-item {
-            margin-bottom: 3rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 2rem;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 2rem;
-        }
-
-        .carousel-item img {
-            max-width: 100%;
-            /* Make images responsive within carousel */
-            height: auto;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .carousel-control-prev,
-        .carousel-control-next {
-            width: 5%;
-        }
-
-        .carousel-control-prev i,
-        .carousel-control-next i {
-            font-size: 2rem;
-            color: var(--dark-color);
-        }
-
-        @media (max-width: 767.98px) {
-            .navbar-nav .nav-link {
-                text-align: center;
-            }
-
-            .social-icons {
-                text-align: center;
-                margin-top: 1rem;
-            }
-
-            .layanan-item {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .layanan-item img {
-                max-width: 100%;
-                margin-bottom: 1rem;
-            }
-
-            .carousel-control-prev i,
-            .carousel-control-next i {
-                font-size: 1.5rem;
-            }
-        }
-
-        footer {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-        }
-
-        footer h5 {
-            color: white;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        footer a {
-            color: rgba(255, 255, 255, 0.8);
-            transition: color 0.3s;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: white;
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('asset/blade/pelayanan.css') }}">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="{{ asset('asset/image/gambar.png') }}" alt="Logo">
+                <img src="{{ asset('asset/image/logo.png') }}" alt="Logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
