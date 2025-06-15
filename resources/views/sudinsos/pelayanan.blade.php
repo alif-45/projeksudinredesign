@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar Pelayanan - Pemerintah Kota Jakarta Selatan</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -30,9 +29,12 @@
         }
 
         .navbar-brand {
-            margin-right: 0;
             font-weight: 700;
             color: white !important;
+        }
+
+        .navbar-brand img {
+            height: 40px;
         }
 
         .layanan-item {
@@ -44,14 +46,51 @@
             padding-bottom: 2rem;
         }
 
-        .layanan-item img {
-            max-width: 200px;
+        .carousel-item img {
+            max-width: 100%;
+            /* Make images responsive within carousel */
             height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .layanan-item h6 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+        }
+
+        .carousel-control-prev i,
+        .carousel-control-next i {
+            font-size: 2rem;
+            color: var(--dark-color);
+        }
+
+        @media (max-width: 767.98px) {
+            .navbar-nav .nav-link {
+                text-align: center;
+            }
+
+            .social-icons {
+                text-align: center;
+                margin-top: 1rem;
+            }
+
+            .layanan-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .layanan-item img {
+                max-width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .carousel-control-prev i,
+            .carousel-control-next i {
+                font-size: 1.5rem;
+            }
         }
 
         footer {
@@ -79,13 +118,13 @@
 </head>
 
 <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="{{ asset('asset/image/gambar.png') }}" alt="Logo" height="40">
+                <img src="{{ asset('asset/image/gambar.png') }}" alt="Logo">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -107,7 +146,7 @@
                             href="{{ route('sudinsos.berita') }}">Berita</a>
                     </li>
                 </ul>
-                <div class="social-icons ms-3">
+                <div class="social-icons ms-lg-3 mt-3 mt-lg-0">
                     <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="text-white mx-2"><i class="fab fa-youtube"></i></a>
                     <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
@@ -116,33 +155,51 @@
         </div>
     </nav>
 
-    <!-- Konten -->
-    <main class="container my-5">
+    <main class="container my-5 px-3 px-md-0">
         <div class="mb-5 text-center">
             <h2>Daftar Pelayanan</h2>
-            <p class="text-muted">Layanan-layanan yang tersedia di Sudinsos Jakarta Selatan</p>
+            <p class="text-muted">Kota Administrasi Jakarta Selatan</p>
         </div>
 
-        @foreach ($pelayanans as $layanan)
-        <div class="layanan-item">
-            @if ($layanan->ikon)
-            <img src="{{ asset('storage/' . $layanan->ikon) }}" alt="{{ $layanan->nama }}">
-            @endif
-            <div>
-                <h6>{{ $layanan->nama }}</h6>
+        @if($pelayanans->count())
+        <div id="carouselPelayanan" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                @foreach ($pelayanans as $index => $layanan)
+                <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                    <div class="container d-flex flex-column align-items-center">
+                        @if ($layanan->ikon)
+                        <img src="{{ asset('storage/' . $layanan->ikon) }}" class="img-fluid d-block mb-4"
+                            alt="{{ $layanan->nama }}">
+                        @endif
+                        <h5 class="text-center fs-6 fs-md-5">{{ $layanan->nama }}</h5>
+                    </div>
+                </div>
+                @endforeach
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselPelayanan"
+                data-bs-slide="prev">
+                <i class="fas fa-chevron-left"></i>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselPelayanan"
+                data-bs-slide="next">
+                <i class="fas fa-chevron-right"></i>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        @endforeach
+        @else
+        <p class="text-center">Tidak ada data pelayanan untuk ditampilkan.</p>
+        @endif
     </main>
 
-    <!-- Footer -->
+
     <footer class="py-5 mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4 mb-lg-0">
                     <h5><i class="fas fa-building me-2"></i> Tentang Kami</h5>
-                    <p>Website resmi Pemerintah Kota Jakarta Selatan untuk memberikan pelayanan dan informasi kepada
-                        masyarakat secara transparan dan akuntabel.</p>
+                    <p>Pelayanan sistem informasi Smart Goverment menjadi kebutuhan pemerintah untuk memberikan
+                        informasi cepat, efektif dan efisien.</p>
                     <div class="social-media mt-3">
                         <a href="#" class="me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
                         <a href="#" class="me-3"><i class="fab fa-twitter fa-lg"></i></a>
@@ -153,33 +210,26 @@
                 <div class="col-lg-4 mb-4 mb-lg-0">
                     <h5><i class="fas fa-address-book me-2"></i> Kontak</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Jl. Prapanca Raya No.9,
-                            Kebayoran
-                            Baru, Jakarta Selatan</li>
-                        <li class="mb-2"><i class="fas fa-phone me-2"></i> (021) 2271-6000</li>
-                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@example.com</li>
-                        <li><i class="fas fa-clock me-2"></i> Senin-Jumat: 08.00 - 16.00 WIB</li>
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Jl. Prapanca Raya No. 9, Kecamatan
+                            Kebayoran Baru, Kota Administrasi Jakarta Selatan, Provinsi Daerah Khusus Jakarta, Kode Pos
+                            12170.</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> (021) 727-866-29</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> walikota-jaksel@jakarta.go.id</li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
-                    <h5><i class="fas fa-link me-2"></i> Tautan Cepat</h5>
+                    <h5><i class="fa-regular fa-clock me-2"></i> Jam Operasional</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#"><i class="fas fa-chevron-right me-2"></i>Kebijakan Privasi</a>
-                        </li>
-                        <li class="mb-2"><a href="#"><i class="fas fa-chevron-right me-2"></i>Syarat dan
-                                Ketentuan</a>
-                        </li>
-                        <li class="mb-2"><a href="#"><i class="fas fa-chevron-right me-2"></i>Peta Situs</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>FAQ</a></li>
+                        <li>Senin - Jumat (07.30 - 16.00) </li>
+                        <li>Sabtu - Minggu (Tutup)</li>
                     </ul>
                 </div>
             </div>
-            <hr class="my-4">
+            <hr class="my-4" />
             <div class="text-center">
                 <p class="mb-0">Hak Cipta &copy; {{ date('Y') }} <a href="#"
                         style="color:rgb(205, 255, 249); font-family: Georgia, 'Times New Roman', Times, serif;">Pemerintah
-                        Kota
-                        Administrasi Jakarta Selatan</a></p>
+                        Kota Administrasi Jakarta Selatan</a></p>
             </div>
         </div>
     </footer>

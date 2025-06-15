@@ -17,7 +17,8 @@ class PelayananResource extends Resource
 {
     protected static ?string $model = Pelayanan::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+
 
     public static function form(Form $form): Form
     {

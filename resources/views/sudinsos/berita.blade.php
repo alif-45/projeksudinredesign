@@ -69,7 +69,7 @@
 
         .btn-read-more {
             background-color: var(--primary-color);
-            color: white;
+            color: rgb(255, 255, 255);
             border: none;
             transition: background-color 0.3s;
         }
@@ -86,6 +86,34 @@
             background-color: var(--primary-color);
             color: white;
             border: none;
+        }
+
+        .page-link {
+            color: rgb(126, 175, 174) !important;
+        }
+
+        .page-link:hover {
+            color: white !important;
+            background-color: rgb(32, 161, 148) !important;
+            border-color: rgb(219, 211, 211) !important;
+        }
+
+        .page-item.active .page-link {
+            background-color: rgb(46, 77, 97) !important;
+            border-color: rgb(176, 180, 184) !important;
+            color: white !important;
+        }
+
+
+        @media (max-width: 767.98px) {
+            .navbar-nav .nav-link {
+                text-align: center;
+            }
+
+            .social-icons {
+                text-align: center;
+                margin-top: 1rem;
+            }
         }
 
         footer {
@@ -183,7 +211,7 @@
                 </div>
             </div>
         </div>
-        <div class="mt-4 d-flex justify-content-center">
+        <div class="mt-4 d-flex justify-content-center ">
             {{ $beritas->links() }}
         </div>
 
@@ -195,8 +223,8 @@
             <div class="row">
                 <div class="col-lg-4 mb-4 mb-lg-0">
                     <h5><i class="fas fa-building me-2"></i> Tentang Kami</h5>
-                    <p>Website resmi Pemerintah Kota Jakarta Selatan untuk memberikan pelayanan dan informasi kepada
-                        masyarakat secara transparan dan akuntabel.</p>
+                    <p>Pelayanan sistem informasi Smart Goverment menjadi kebutuhan pemerintah untuk memberikan
+                        informasi cepat, efektif dan efisien.</p>
                     <div class="social-media mt-3">
                         <a href="#" class="me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
                         <a href="#" class="me-3"><i class="fab fa-twitter fa-lg"></i></a>
@@ -207,21 +235,18 @@
                 <div class="col-lg-4 mb-4 mb-lg-0">
                     <h5><i class="fas fa-address-book me-2"></i> Kontak</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Jl. Prapanca Raya No.9, Kebayoran
-                            Baru, Jakarta Selatan</li>
-                        <li class="mb-2"><i class="fas fa-phone me-2"></i> (021) 2271-6000</li>
-                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@example.com</li>
-                        <li><i class="fas fa-clock me-2"></i> Senin-Jumat: 08.00 - 16.00 WIB</li>
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Jl. Prapanca Raya No. 9, Kecamatan
+                            Kebayoran Baru, Kota Administrasi Jakarta Selatan, Provinsi Daerah Khusus Jakarta, Kode Pos
+                            12170.</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> (021) 727-866-29</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> walikota-jaksel@jakarta.go.id</li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
-                    <h5><i class="fas fa-link me-2"></i> Tautan Cepat</h5>
+                    <h5><i class="fa-regular fa-clock me-2"></i> Jam Operasional</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#"><i class="fas fa-chevron-right me-2"></i>Kebijakan Privasi</a></li>
-                        <li class="mb-2"><a href="#"><i class="fas fa-chevron-right me-2"></i>Syarat dan Ketentuan</a>
-                        </li>
-                        <li class="mb-2"><a href="#"><i class="fas fa-chevron-right me-2"></i>Peta Situs</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>FAQ</a></li>
+                        <li>Senin - Jumat (07.30 - 16.00) </li>
+                        <li>Sabtu - Minggu (Tutup)</li>
                     </ul>
                 </div>
             </div>

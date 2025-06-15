@@ -17,14 +17,14 @@ class BeritaResource extends Resource
 {
     protected static ?string $model = Berita::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
 
     public static function form(Form $form): Form
     {
         return $form->schema([
             Forms\Components\TextInput::make('judul')->required(),
-            Forms\Components\Textarea::make('konten')->required(),
-            Forms\Components\FileUpload::make('gambar')->image()->directory('berita-images')->disk('public'),
+            Forms\Components\RichEditor::make('konten')->required(),
+            Forms\Components\FileUpload::make('gambar')->image()->directory('berita-images')->disk('public')->imageEditor()->required()->columnSpanFull(),
         ]);
     }
 
