@@ -24,7 +24,16 @@ class BeritaResource extends Resource
         return $form->schema([
             Forms\Components\TextInput::make('judul')->required(),
             Forms\Components\RichEditor::make('konten')->required(),
-            Forms\Components\FileUpload::make('gambar')->image()->directory('berita-images')->disk('public')->imageEditor()->required()->columnSpanFull(),
+            Forms\Components\FileUpload::make('gambar')
+                ->image()
+                ->directory('berita-images')
+                ->disk('public')
+                ->visibility('public')
+                ->imageEditor()
+                ->preserveFilenames()
+                ->required()
+                ->columnSpanFull(),
+
         ]);
     }
 

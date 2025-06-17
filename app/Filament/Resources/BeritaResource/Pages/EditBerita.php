@@ -20,4 +20,5 @@ class EditBerita extends EditRecord
     {
         return $this->getResource()::getUrl('index');
     }
+
 }

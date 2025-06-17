@@ -60,11 +60,11 @@
                 @foreach ($pelayanans as $index => $layanan)
                 <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
                     <div class="container d-flex flex-column align-items-center">
+                        <h5 class="text-center fs-6 fs-md-5">{{ $layanan->nama }}</h5>
                         @if ($layanan->ikon)
                         <img src="{{ asset('storage/' . $layanan->ikon) }}" class="img-fluid d-block mb-4"
                             alt="{{ $layanan->nama }}">
                         @endif
-                        <h5 class="text-center fs-6 fs-md-5">{{ $layanan->nama }}</h5>
                     </div>
                 </div>
                 @endforeach

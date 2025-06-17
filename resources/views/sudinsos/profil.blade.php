@@ -6,207 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Pemerintah - @yield('title')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #005E7A;
-            --secondary-color: #009688;
-            --accent-color: #FFC107;
-            --light-color: #E8F4F8;
-            --dark-color: #333333;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--dark-color);
-            background-color: #f8f9fa;
-            padding-top: 56px;
-        }
-
-        .navbar {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar-brand {
-            margin-right: 0;
-            font-weight: 700;
-            color: white !important;
-        }
-
-        .main-hero-wrapper {
-            position: relative;
-            background: linear-gradient(rgba(0, 94, 122, 0.8), rgba(238, 241, 240, 0.8));
-            padding: 4rem 0;
-        }
-
-        .main-hero-wrapper::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://statik.tempo.co/data/2021/01/12/id_993708/993708_720.jpg');
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-            opacity: 0.8;
-        }
-
-        .hero-section {
-            color: white;
-            position: relative;
-            z-index: 1;
-        }
-
-
-        .feature-box {
-            padding: 2rem;
-            border-radius: 8px;
-            background-color: white;
-            height: 100%;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .feature-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-box i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .card {
-            border-radius: 15px;
-            border: none;
-        }
-
-        .carousel-control-prev,
-        .carousel-control-next {
-            width: auto;
-        }
-
-        .carousel-control-prev {
-            left: -50px;
-        }
-
-        .carousel-control-next {
-            right: -50px;
-        }
-
-        .bg-teal {
-            background-color: #009688;
-        }
-
-        .card {
-            border: none;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-header {
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 8px 8px 0 0 !important;
-        }
-
-        .partner-section {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            margin-top: 2rem;
-        }
-
-        .partner-section h3 {
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 2rem;
-        }
-
-        .partner-item {
-            padding: 1rem;
-            text-align: center;
-        }
-
-        .partner-img {
-            max-height: 100px;
-            width: auto;
-            margin: 0 auto;
-            display: block;
-        }
-
-        .partner-title {
-            color: var(--dark-color);
-            font-weight: 600;
-            margin-top: 1rem;
-        }
-
-        .carousel-indicators {
-            position: relative;
-            bottom: auto;
-            margin: 2rem 0 0;
-        }
-
-        .carousel-indicators [data-bs-target] {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(0, 94, 122, 0.3);
-            border: none;
-            margin: 0 8px;
-            transition: all 0.3s ease;
-        }
-
-        .carousel-indicators .active {
-            background-color: var(--primary-color);
-            width: 30px;
-            border-radius: 6px;
-        }
-
-        footer {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-        }
-
-        footer h5 {
-            color: white;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        footer a {
-            color: rgba(255, 255, 255, 0.8);
-            transition: color 0.3s;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: white;
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ asset('asset/blade/profile.css') }}">
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="{{ asset('asset/image/picture.png') }}" alt="Logo" height="40">
-                <span class="mb-0">Pemerintah Kota Jakarta Selatan</span>
+                <img src="{{ asset('asset/image/logo.png') }}" alt="Logo" height="40">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -218,11 +28,11 @@
                             href="{{ route('sudinsos.beranda') }}">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @if(Request::is('profil*')) active @endif"
+                        <a class="nav-link active @if(Request::is('profil*')) active @endif"
                             href="{{ route('sudinsos.profil') }}">Profil Sudinsos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @if(Request::is('pelayanan*')) active @endif"
+                        <a class="nav-link @if(Request::is('layanan*')) active @endif"
                             href="{{ route('sudinsos.pelayanan') }}">Pelayanan</a>
                     </li>
                     <li class="nav-item">
@@ -241,235 +51,94 @@
 
     <!-- Main Content -->
     <main>
-        <div class="main-hero-wrapper">
-            <div class="container">
-                <div class="hero-section text-center">
-                    <h1 class="display-4 fw-bold">Selamat Datang di Portal Resmi</h1>
-                    <h2 class="display-5 fw-normal">Pemerintah Kota Jakarta Selatan</h2>
-                    <p class="lead">Kami hadir untuk memberikan layanan dan informasi terbaik kepada masyarakat dengan
-                        transparansi dan akuntabilitas.</p>
-                    <div class="search-container">
-                        <div class="row justify-content-center">
-                            <div class="col-md-8">
-                                <div class="input-group">
-                                    <input type="text" class="form-control form-control-lg"
-                                        placeholder="Cari informasi, layanan, atau berita...">
-                                    <button class="btn btn-outline-secondary px-4" type="button"
-                                        style="background-color: #009688; color: white;">
-                                        <i class="fas fa-search"></i> Cari
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <section class="hero-section-wrapper">
+            <div class="container-navbar">
+                <div class="hero-section text-center py-5">
+                    <h1 class="display-4 fw-bold">Suku Dinas Sosial </h1>
+                    <h2 class="display-5 fw-normal">Kota Administrasi Jakarta Selatan</h2>
                 </div>
+            </div>
+        </section>
+
+        <!-- Profil -->
+        <div class="profil-wrapper">
+            <div class="profil-deskripsi">
+                <h2>Profil Suku Dinas Sosial Jakarta Selatan</h2>
+                <p>
+                    Suku Dinas Sosial Kota Administrasi Jakarta Selatan merupakan perangkat daerah yang berada di bawah
+                    Dinas Sosial Provinsi DKI Jakarta. Kami memiliki tugas utama dalam melaksanakan urusan pemerintahan
+                    bidang sosial di wilayah Jakarta Selatan, meliputi pelayanan, perlindungan, dan pemberdayaan sosial
+                    masyarakat.
+                </p>
+                <p>
+                    Dengan semangat kerja yang profesional, responsif, dan humanis, kami hadir untuk memberikan
+                    pelayanan sosial kepada warga yang membutuhkan, khususnya dalam penanganan masalah kesejahteraan
+                    sosial seperti kemiskinan, lansia terlantar, anak terlantar, penyandang disabilitas, serta korban
+                    bencana sosial dan alam.
+                </p>
+                <p>
+                    Kami juga aktif melakukan pembinaan kepada lembaga kesejahteraan sosial, peningkatan kapasitas
+                    sumber daya manusia kesejahteraan sosial (SDM Kesos), serta kolaborasi dengan berbagai pihak demi
+                    menciptakan Jakarta Selatan yang lebih sejahtera, inklusif, dan berkeadilan sosial.
+                </p>
+            </div>
+            <div class="profil-foto">
+                <img src="{{ asset('asset/blade/gedung-walikota.jpg') }}" alt="Gedung Walikota Jakarta Selatan">
             </div>
         </div>
 
-        <div class="container my-5">
-            <div class="card shadow-lg p-4">
-                <div id="profileCarousel" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row align-items-center">
-                                <div class="col-md-4 text-center">
-                                    <img src="https://selatan.jakarta.go.id/modul/sudinsos/upload/visi_misi/202211041423-heru-budi-hartono.png"
-                                        class="img-fluid rounded-circle shadow mb-3" alt="Profil 1"
-                                        style="width: 180px; height: 180px; object-fit: cover; border: 4px solid #009688;">
-                                    <h4 class="mt-2">Heru Budi Hartono</h4>
-                                    <p class="text-muted">Walikota Administrasi Jakarta Selatan</p>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="p-4">
-                                        <p class="lead">"Mari melangkah bersama, #terusbekerja membangun dan memajukan
-                                            Jakarta, kota tercinta kita bersama."</p>
-                                        <div class="text-end">
-                                            <small class="text-muted">- Heru Budi Hartono</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <!-- Card Button -->
+        <div class="container-buttons" role="main">
+            <h1>Tentang Kami</h1>
+            <p class="lead">Kota Administrasi Jakarta Selatan</p>
 
-                        <div class="carousel-item">
-                            <div class="row align-items-center">
-                                <div class="col-md-4 text-center">
-                                    <img src="https://selatan.jakarta.go.id/modul/sudinsos/upload/visi_misi/202211041424-munjirin--s.sos--m.si.png"
-                                        class="img-fluid rounded-circle shadow mb-3" alt="Profil 2"
-                                        style="width: 180px; height: 180px; object-fit: cover; border: 4px solid #009688;">
-                                    <h4 class="mt-2">Munjirin, S.Sos, M.Si</h4>
-                                    <p class="text-muted">Walikota Kota Administrasi Jakarta Selatan</p>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="p-4">
-                                        <p class="lead">"Kota Administrasi Jakarta Selatan yang berbudaya, berorientasi
-                                            pada pelayanan publik dan berwawasan lingkungan."</p>
-                                        <div class="text-end">
-                                            <small class="text-muted">- Munjirin, S.Sos, M.Si</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="profil-card-grid" role="list">
+
+                <div class="profil-card" role="listitem" tabindex="0" onclick="showImage('Visi Misi', this)"
+                    onkeydown="if(event.key==='Enter'||event.key===' ') showImage('Visi Misi', this)">
+                    <i class="bi bi-geo-alt-fill fs-1" aria-hidden="true" style="color: #2c5b75;"></i>
+                    <h2>Visi Misi</h2>
+                    <div class="arrow-down">
+                        <i class="bi bi-chevron-down toggle-icon rotate-down" aria-hidden="true"></i>
                     </div>
-
-                    <button class="carousel-control-prev" type="button" data-bs-target="#profileCarousel"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon bg-teal rounded-circle p-3" aria-hidden="true"
-                            style="background-color:#009688;"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#profileCarousel"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon bg-teal rounded-circle p-3" aria-hidden="true"
-                            style="background-color:#009688;"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
                 </div>
+
+                <div class="profil-card" role="listitem" tabindex="0" onclick="showImage('Maklumat Pelayanan', this)"
+                    onkeydown="if(event.key==='Enter'||event.key===' ') showImage('Maklumat Pelayanan', this)">
+                    <i class="bi bi-calendar-event-fill fs-1" aria-hidden="true" style="color: #2c5b75;"></i>
+                    <h2>Maklumat Pelayanan</h2>
+                    <div class="arrow-down">
+                        <i class="bi bi-chevron-down toggle-icon rotate-down" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <div class="profil-card" role="listitem" tabindex="0" onclick="showImage('Kanal Aduan', this)"
+                    onkeydown="if(event.key==='Enter'||event.key===' ') showImage('Kanal Aduan', this)">
+                    <i class="bi bi-chat-dots-fill fs-1" aria-hidden="true" style="color: #2c5b75;"></i>
+                    <h2>Kanal Aduan</h2>
+                    <div class="arrow-down">
+                        <i class="bi bi-chevron-down toggle-icon rotate-down" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <div class="profil-card" role="listitem" tabindex="0" onclick="showImage('Kepuasan Masyarakat', this)"
+                    onkeydown="if(event.key==='Enter'||event.key===' ') showImage('Kepuasan Masyarakat', this)">
+                    <i class="bi bi-bar-chart-line-fill fs-1" aria-hidden="true" style="color: #2c5b75;"></i>
+                    <h2>Kepuasan Masyarakat</h2>
+                    <div class="arrow-down">
+                        <i class="bi bi-chevron-down toggle-icon rotate-down" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="imageContainer" class="hidden" aria-live="polite" aria-atomic="true">
+                <h3 id="imageLabel"></h3>
+                <img id="cardImage" src="" alt="Gambar preview" />
             </div>
         </div>
 
 
-
-        <div class="container py-5">
-            <div class="row g-4">
-                <div class="col-md-4 col-6">
-                    <div class="feature-box text-center p-3 h-100">
-                        <i class="fas fa-clock fa-3x mb-3"></i>
-                        <h3>Layanan 24 Jam</h3>
-                        <p>Layanan darurat dan pengaduan masyarakat yang tersedia 24 jam non-stop.</p>
-                        <a href="#" class="btn btn-outline-secondary">Selengkapnya</a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-6">
-                    <div class="feature-box text-center p-3 h-100">
-                        <i class="fas fa-file-alt fa-3x mb-3"></i>
-                        <h3>Perizinan</h3>
-                        <p>Pelayanan perizinan usaha dan dokumen kependudukan secara online dan offline.</p>
-                        <a href="#" class="btn btn-outline-secondary">Selengkapnya</a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-6">
-                    <div class="feature-box text-center p-3 h-100">
-                        <i class="fas fa-map-marked-alt fa-3x mb-3"></i>
-                        <h3>Destinasi</h3>
-                        <p>Informasi tempat wisata dan fasilitas publik unggulan di Jakarta Selatan.</p>
-                        <a href="#" class="btn btn-outline-secondary">Selengkapnya</a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-6">
-                    <div class="feature-box text-center p-3 h-100">
-                        <i class="fas fa-bus fa-3x mb-3"></i>
-                        <h3>Transportasi</h3>
-                        <p>Informasi lengkap tentang angkutan umum dan kebijakan transportasi.</p>
-                        <a href="#" class="btn btn-outline-secondary">Selengkapnya</a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-6">
-                    <div class="feature-box text-center p-3 h-100">
-                        <i class="fas fa-info-circle fa-3x mb-3"></i>
-                        <h3>PPID Jakarta Selatan</h3>
-                        <p>Layanan Pengaduan dan Informasi Publik Pemkot Jakarta Selatan.</p>
-                        <a href="#" class="btn btn-outline-secondary">Selengkapnya</a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-6">
-                    <div class="feature-box text-center p-3 h-100">
-                        <i class="fas fa-headset fa-3x mb-3"></i>
-                        <h3>Layanan Technocare</h3>
-                        <p>Bantuan teknis dan pengaduan masalah teknologi informasi masyarakat.</p>
-                        <a href="#" class="btn btn-outline-secondary">Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="card mt-5">
-                <div class="card-header ">
-                    <h2 class="mb-0">Informasi Terkini</h2>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Jakarta Selatan Raih Penghargaan Kota Terinovatif 2023</h5>
-                    <p class="card-text">Pemerintah Kota Jakarta Selatan menerima penghargaan sebagai Kota Terinovatif
-                        tahun 2023 dari Kementerian Dalam Negeri...</p>
-                    <a href="#" class="btn btn-outline-secondary">Baca Selengkapnya</a>
-                </div>
-                <div class="card-footer bg-light">
-                    Dipublikasikan pada 2 hari yang lalu
-                </div>
-            </div>
-
-            <div class="partner-section mt-5">
-                <h3 class="text-center">Partner Wilayah Jakarta Selatan</h3>
-                <div id="partnerCarousel" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row">
-                                <div class="col-6 col-md-3">
-                                    <div class="partner-item">
-                                        <img src="https://selatan.jakarta.go.id/modul/sudinsos/public/assets/images/logo/jakarta-pusat.png"
-                                            alt="Jakarta Pusat" class="partner-img">
-                                        <h5 class="partner-title">Jakarta Pusat</h5>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-3">
-                                    <div class="partner-item">
-                                        <img src="https://selatan.jakarta.go.id/modul/sudinsos/public/assets/images/logo/jakarta-raya.png"
-                                            alt="Jakarta Raya" class="partner-img">
-                                        <h5 class="partner-title">Jakarta Raya</h5>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-3">
-                                    <div class="partner-item">
-                                        <img src="https://selatan.jakarta.go.id/modul/sudinsos/public/assets/images/logo/jakarta-timur.png"
-                                            alt="Jakarta Timur" class="partner-img">
-                                        <h5 class="partner-title">Jakarta Timur</h5>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-3">
-                                    <div class="partner-item">
-                                        <img src="https://selatan.jakarta.go.id/modul/sudinsos/public/assets/images/logo/jakarta-barat.png"
-                                            alt="Jakarta Barat" class="partner-img">
-                                        <h5 class="partner-title">Jakarta Barat</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row">
-                                <div class="col-6 col-md-3">
-                                    <div class="partner-item">
-                                        <img src="https://selatan.jakarta.go.id/modul/sudinsos/public/assets/images/logo/jakarta-utara.png"
-                                            alt="Jakarta Utara" class="partner-img">
-                                        <h5 class="partner-title">Jakarta Utara</h5>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-3">
-                                    <div class="partner-item">
-                                        <img src="https://selatan.jakarta.go.id/modul/sudinsos/public/assets/images/logo/kepulauan-seribu.png"
-                                            alt="Kepulauan Seribu" class="partner-img">
-                                        <h5 class="partner-title">Kepulauan Seribu</h5>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-3">
-                                    <div class="partner-item">
-                                        <img src="https://selatan.jakarta.go.id/modul/sudinsos/public/assets/images/logo/satu-data2.png"
-                                            alt="Satu Data" class="partner-img">
-                                        <h5 class="partner-title">Satu Data</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#partnerCarousel" data-bs-slide-to="0" class="active"
-                            aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#partnerCarousel" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
 
     <!-- Footer -->
@@ -517,6 +186,58 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        let currentImage = null;
+    let currentIcon = null;
+
+    function showImage(label, element) {
+        const imageMap = {
+        'Visi Misi': "{{ asset('asset/blade/visi-misi.png') }}",
+        'Maklumat Pelayanan': "{{ asset('asset/blade/maklumat.png') }}",
+        'Kanal Aduan': "{{ asset('asset/blade/kanal-aduan.png') }}",
+        'Kepuasan Masyarakat': "{{ asset('asset/blade/kepuasan.png') }}"
+        };
+
+        const imageContainer = document.getElementById("imageContainer");
+        const imageLabel = document.getElementById("imageLabel");
+        const cardImage = document.getElementById("cardImage");
+        const icon = element.querySelector(".toggle-icon");
+
+        if (currentImage === label) {
+        // Hide image and reset icon
+        imageContainer.classList.add("hidden");
+        if (currentIcon) {
+            currentIcon.classList.remove("rotate-up");
+            currentIcon.classList.add("rotate-down");
+        }
+        currentImage = null;
+        currentIcon = null;
+        return;
+        }
+
+        // Show selected image and label
+        cardImage.src = imageMap[label] || "";
+        imageLabel.textContent = label;
+        imageContainer.classList.remove("hidden");
+
+        // Reset previous icon rotate
+        if (currentIcon && currentIcon !== icon) {
+        currentIcon.classList.remove("rotate-up");
+        currentIcon.classList.add("rotate-down");
+        }
+
+        // Rotate current icon up
+        icon.classList.remove("rotate-down");
+        icon.classList.add("rotate-up");
+
+        currentImage = label;
+        currentIcon = icon;
+    }
+    </script>
+
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
